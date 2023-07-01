@@ -1,23 +1,9 @@
-import React, {ChangeEvent, useState} from "react";
+import React from "react";
 
-function App() {
-    const [text,setText]=useState('')
-    const [persons,serPerson]=useState([])
-
-    const addPerson=()=>{}
-
-    const removePerson=()=>{}
-
-    const changeText=(e:ChangeEvent<HTMLInputElement>) =>{
-        setText(e.target.value)
-    }
+export function Person() {
 
     return (
-        <div className="App">
-            <input value={text} onChange={changeText}/>
-            <button onClick={()=>{}}>Добавить</button>
-            <div>{persons.map((p)=>{return <Person/>})}</div>
-        </div>
-    );
+       <div></div>
+    )
 }
 
