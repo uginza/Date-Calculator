@@ -19,7 +19,7 @@ function App() {
     const [name, setText] = useState('')
     const [persons, setPerson] = useState<PersonsType>([])
 
-    const addPerson = (name: string) => {
+    const addPerson = () => {
         if (name) {
             const newName = {
                 id: uuidv4(),
@@ -29,19 +29,22 @@ function App() {
         }
     }
 
-    const removePerson = () => {
+    const removePerson = (id:string) => {
+
     }
 
-    const changeText = (e: ChangeEvent<HTMLInputElement>) => {
+    const changeTextHandler = (e: ChangeEvent<HTMLInputElement>) => {
         setText(e.currentTarget.value)
     }
 
     return (
         <div className="App">
-            <input value={name} onChange={changeText}/>
+            <input value={name} onChange={changeTextHandler}/>
             <button onClick={addPerson}>Добавить</button>
-            <div>{persons.map((p) => {
-                return <Person/>
+            <div>{persons.map((person) => {
+                return (
+                    <Person person={person} removePerson={removePerson}/>
+                )
             })}</div>
         </div>
     );
