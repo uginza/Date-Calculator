@@ -1,24 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {ChangeEvent, useState} from 'react';
 import './App.css';
 
 function App() {
-  return (
+    const [text,setText]=useState('')
+    const [persons,serPerson]=useState([])
+
+    const addPerson=()=>{}
+
+    const removePerson=()=>{}
+
+    const changeText=(e:ChangeEvent<HTMLInputElement>) =>{
+        setText(e.target.value)
+    }
+
+    return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <input value={text} onChange={changeText}/>
+        <button onClick={()=>{}}>Добавить</button>
+        <div>{persons.map((p)=>{return <Person/>})}</div>
     </div>
   );
 }
