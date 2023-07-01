@@ -16,24 +16,30 @@ function App() {
 
     const [name, setText] = useState('')
     const [persons, setPerson] = useState<PersonsType>([])
+    const [date,setDate] = useState<string>()
 
 
     const addPerson = () => {
         if (name) {
-            const newName = {
+            const newPerson = {
                 id: uuidv4(),
                 name: name,
+                date:date
             }
-            setPerson([...persons, newName])
+            setPerson([...persons, newPerson])
+
         }
     }
-
+    console.log(persons)
     const removePerson = (id: string) => {
 setPerson([...persons.filter(p=>p.id !== id)])
     }
 
     const changeTextHandler = (e: ChangeEvent<HTMLInputElement>) => {
         setText(e.currentTarget.value)
+    }
+    const changeDateHandler = (e:ChangeEvent<HTMLInputElement>) => {
+        setDate(e.currentTarget.value)
     }
 
     return (
@@ -42,7 +48,7 @@ setPerson([...persons.filter(p=>p.id !== id)])
             <button onClick={addPerson}>Добавить</button>
             <div>{persons.map((person) => {
                 return (
-                    <Person person={person} removePerson={removePerson}/>
+                    <Person key={person.id} person={person} removePerson={removePerson} onChange={changeDateHandler}/>
                 )
             })}</div>
         </div>
