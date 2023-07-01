@@ -6,14 +6,13 @@ import {v4 as uuidv4} from 'uuid';
 //types
 export type NewNameType = {
     id: string
-    name:string
+    name: string
 }
 
-export type PersonsType= NewNameType[]
+export type PersonsType = NewNameType[]
 
 
 function App() {
-
 
 
     const [name, setText] = useState('')
@@ -25,12 +24,12 @@ function App() {
                 id: uuidv4(),
                 name: name,
             }
-            setPerson([...persons,newName])
+            setPerson([...persons, newName])
         }
     }
 
-    const removePerson = (id:string) => {
-
+    const removePerson = (id: string) => {
+setPerson([...persons.filter(p=>p.id !== id)])
     }
 
     const changeTextHandler = (e: ChangeEvent<HTMLInputElement>) => {
