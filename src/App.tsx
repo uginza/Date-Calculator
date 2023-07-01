@@ -14,9 +14,9 @@ export type PersonsType = NewNameType[]
 
 function App() {
 
-
     const [name, setText] = useState('')
     const [persons, setPerson] = useState<PersonsType>([])
+
 
     const addPerson = () => {
         if (name) {

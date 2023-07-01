@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import {NewNameType} from "../App";
 
 type PersonPropsType = {
@@ -7,11 +7,11 @@ type PersonPropsType = {
 }
 
 export function Person(props: PersonPropsType) {
-
     return (
         <div key={props.person.id}>
+            <input type={'date'}/>
             <div>{props.person.name}</div>
-            <div onClick={()=>props.removePerson(props.person.id)}>X</div>
+            <button onClick={()=>props.removePerson(props.person.id)}>X</button>
         </div>
     )
 }
